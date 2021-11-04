@@ -1,0 +1,130 @@
+body {
+	margin:0px;
+	background-image:URL(media/background_tile.gif);}
+	
+a:link {text-decoration:underline; font-weight:bold; color:#FFEFB0;}
+a:visited {text-decoration:underline; font-weight:bold; color:#FFEFB0;}
+a:active {text-decoration:underline; font-weight:bold; color:#FFEFB0;}
+a:hover {text-decoration:underline; font-weight:bold; color:#ffffcc;}
+
+a.ecards:link {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:visited {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:active {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:hover {text-decoration:underline; font-weight:bold; color:#2B2315;}
+
+p { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	color:#ffcc66;
+	line-height:150%;
+	}
+	
+.smalltext { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#ffcc66;
+	line-height:150%;
+	}
+	
+.ecards { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#473923;
+	line-height:150%;
+	}
+	
+.headline { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:12pt;
+	color:#ffcc66;
+	line-height:150%;
+	font-weight:bold;
+	}
+
+.footertext { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#A38345;
+	line-height:150%;
+	}
+		
+ul { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:150%;
+	}
+	
+h3 { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:150%;
+	}
+
+.price { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	letter-spacing:3pt;
+	}
+	
+.title { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:12pt;
+	letter-spacing:3pt;
+	}
+	
+.title_small { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	}
+	
+.item_list { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	line-height:120%;
+	letter-spacing:1pt;
+	}
+	
+.item_type { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	line-height:120%;
+	color:#aaaaaa;
+	letter-spacing:1pt;
+	}
+	
+.form_options {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	background-color:#f2f2f2;
+	border:1pt solid #999999 ;
+	}
+	
+.more_options {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#ff6600;
+	background-color:#f2f2f2;
+	border:1pt solid #999999 ;
+	}
+	
+.form_buttons {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#ff6600;
+	background-color:#f2f2f2;
+	border:1pt solid #ff6600 ;
+	}
+	
+.ecard { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:125%;
+	}
+
+.tableheader { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:11pt;
+	font-weight:bold;
+	color:#ffcc66;
+	line-height:150%;
+	}	
+	
+.gamescores { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	color:#ffcc66;
+	line-height:150%;
+	}	
+	
+div.float {
+  float: left;
+  width: 50%;
+  }
+  
+  .xsblack {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: .27cm; font-weight: normal; color: #000000;}

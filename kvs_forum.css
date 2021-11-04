@@ -1,0 +1,123 @@
+body {
+	margin:0px;
+	background-image:URL(media/background_tile.gif);}
+	
+a:link {text-decoration:underline; font-weight:bold; color:#D49550;}
+a:visited {text-decoration:underline; font-weight:bold; color:#D49550;}
+a:active {text-decoration:underline; font-weight:bold; color:#44546E;}
+a:hover {text-decoration:underline; font-weight:bold; color:#ffffff;}
+
+a:forum:link {text-decoration:underline; font-weight:bold; color:#D49550;}
+a:forum:visited {text-decoration:underline; font-weight:bold; color:#D49550;}
+a:forum:active {text-decoration:underline; font-weight:bold; color:#44546E;}
+a:forum:hover {text-decoration:underline; font-weight:bold; color:#ffffff;}
+
+
+a.ecards:link {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:visited {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:active {text-decoration:underline; font-weight:bold; color:#473923;}
+a.ecards:hover {text-decoration:underline; font-weight:bold; color:#2B2315;}
+
+p { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	color:#6F0809;
+	line-height:150%;
+	}
+	
+.smalltext { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#ffcc66;
+	line-height:150%;
+	}
+	
+.ecards { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#473923;
+	line-height:150%;
+	}
+	
+.headline { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:12pt;
+	color:#ffcc66;
+	line-height:150%;
+	font-weight:bold;
+	}
+
+.footertext { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:8pt;
+	color:#A38345;
+	line-height:150%;
+	}
+		
+ul { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:150%;
+	}
+	
+h3 { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:150%;
+	}
+
+.price { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	letter-spacing:3pt;
+	}
+	
+.title { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:12pt;
+	letter-spacing:3pt;
+	}
+	
+.title_small { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	}
+	
+.item_list { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	line-height:120%;
+	letter-spacing:1pt;
+	}
+	
+.item_type { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:10pt;
+	line-height:120%;
+	color:#aaaaaa;
+	letter-spacing:1pt;
+	}
+	
+.form_options {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	background-color:#f2f2f2;
+	border:1pt solid #999999 ;
+	}
+	
+.more_options {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#ff6600;
+	background-color:#f2f2f2;
+	border:1pt solid #999999 ;
+	}
+	
+.form_buttons {font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#ff6600;
+	background-color:#f2f2f2;
+	border:1pt solid #ff6600 ;
+	}
+	
+.ecard { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
+	font-size:9pt;
+	color:#666666;
+	line-height:125%;
+	}
+	
+div.float {
+  float: left;
+  width: 50%;
+  }
+  
+  .xsblack {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: .27cm; font-weight: normal; color: #000000;}
