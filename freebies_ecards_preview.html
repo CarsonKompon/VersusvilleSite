@@ -14,6 +14,26 @@
   <!--#include virtual="includes/navbar.html"-->
   <!-- SUBHEAD START -->
 </div>
+
+<!-- HOMEPAGE HEADER START -->
+<table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
+    <tr>
+    <td align="center" valign="top" width="750" bgcolor="#9d8e62">
+    <img src="media/home_header_kenny.gif" alt="Kenny" width="151" height="165" border="0"><a href="index.html"><img src="media/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165" border="0"></a><img src="media/home_header_spenny.gif" alt="Spenny" width="161" height="165" border="0"></td>
+    </tr>
+    </table>
+    <!-- HOMEPAGE HEADER END -->
+    
+    
+    <!-- NAVBAR START-->
+    <table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
+        <tr>
+        <td align="center" valign="top" width="750" background="media/nav_background.gif"> 
+        <a href="competitions.html"><img src="media/nav_filler.gif" alt="" width="48" height="30" border="0"><img src="media/nav_competitions_off.gif" hsrc="media/nav_competitions_on.gif" alt="Competitions" width="141" height="30" border="0"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="bios.html"><img src="media/nav_bios_off.gif" alt="Bios" width="54" height="30" border="0" hsrc="media/nav_bios_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="freebies.html"><img src="media/nav_freebies_off.gif" alt="Freebies" width="100" height="30" border="0" hsrc="media/nav_freebies_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="outtakes.html"><img src="media/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" border="0" hsrc="media/nav_outtakes_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="game.html"><img src="media/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" border="0" hsrc="media/nav_versusville_on.gif"></a><img src="media/nav_filler.gif" alt="" width="49" height="30" border="0"></td>
+        </tr>
+        </table>
+        <!-- NAVBAR END-->
+
 <table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
 <tr>
 
@@ -48,7 +68,7 @@
 
 <td align="center" valign="top" width="730" bgcolor="#473923">
 
-<img src="media/ecards_01.jpg" alt="ecards" width="450" height="280" border="0">
+<img id="picture" src="media/ecards_01.jpg" alt="ecards" width="450" height="280" border="0">
 
 <p align="center">
 
@@ -64,8 +84,8 @@
 	<img src="media/blank.gif" width="10" height="1" border="0" alt="" /></td>
 
 	<td align="left" valign="top" width="252" bgcolor="#E4D9BE">
-	<p class="ecards"><img src="media/blank.gif" width="252" height="1" border="0" alt="" /><br />
-	$fields{'the_message'}</p></td>
+	<p class="ecards" id="message"><img src="media/blank.gif" width="252" height="1" border="0" alt="" /><br />
+	</p></td>
 
 	<td align="left" valign="top" width="10" bgcolor="#E4D9BE">
 	<img src="media/blank.gif" width="10" height="1" border="0" alt="" /></td>
@@ -79,10 +99,10 @@
 	<td align="right" valign="top" width="158" bgcolor="#E4D9BE">
 	<img src="media/stamp.gif" width="158" height="95" border="0" alt="Stamp" /><br />
 	<img src="media/blank.gif" width="1" height="10" border="0" alt="" /><br>
-	<p class="ecards">from: <a href="mailto:$fields{'sender_email'}" class="ecards">$fields{'sender_name'}</a><br />
-	to: <a href="mailto:$fields{'recip_email'}" class="ecards">$fields{'recip_name'}</a><br /></p>
+	<p class="ecards">from: <a id="sendername" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('senderemail')" class="ecards"></a><br />
+	to: <a id="recipname" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('recipientemail')" class="ecards"></a><br /></p>
 
-	<p class="ecards"><a href="/ecards.shtml" class="ecards">send a card to a friend</a><br />
+	<p class="ecards"><a href="freebies_ecards.html" class="ecards">send another ecard</a><br />
 	or<br />
 	<a href="index.html" class="ecards">go to homepage</a></p>
 	</td>
@@ -110,6 +130,28 @@
 </tr>
 </table>
 <!-- CONTENT END -->
+
+<script>
+    function findGetParameter(parameterName) {
+        var result = null,
+            tmp = [];
+        location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+              tmp = item.split("=");
+              if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            });
+        return result;
+    }
+
+    document.getElementById("message").innerHTML = findGetParameter("message").split("+").join(" ");
+    document.getElementById("sendername").innerHTML = findGetParameter("sendername");
+    document.getElementById("recipname").innerHTML = findGetParameter("recipientname");
+
+    document.getElementById("picture").src = "media/ecards_0" + findGetParameter("designid").toString() + ".jpg"
+
+    </script>
 
 <!--#include virtual="includes/footer.html"-->
 
