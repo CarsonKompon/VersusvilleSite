@@ -1,4 +1,3 @@
-
 function setupRollovers() {
 	var img, sh, sn, sd
 	for (var i = 0; (img = document.images[i]); i++) {
