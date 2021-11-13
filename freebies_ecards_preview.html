@@ -88,8 +88,8 @@
                                     <img src="media/ecards/stamp.gif" width="158" height="95" alt="Stamp" /><br />
                                     <img src="media/blank.gif" width="1" height="10" alt="" /><br>
                                     <p class="ecards">
-                                        from: <a id="sendername" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('senderemail')" class="ecards"></a><br />
-                                        to: <a id="recipname" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('recipientemail')" class="ecards"></a><br />
+                                        from: <a id="sendername" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('senderemail') + '?subject=Kenny VS Spenny E-Card&body=Check out this Kenny VS Spenny E-Card I made for you! ' + window.location" class="ecards"></a><br />
+                                        to: <a id="recipname" href="#" onclick="document.location.href = 'mailto:' + findGetParameter('recipientemail') + '?subject=Kenny VS Spenny E-Card&body=Check out this Kenny VS Spenny E-Card I made for you! ' + window.location" class="ecards"></a><br />
                                     </p>
                                     <p class="ecards">
                                         <a href="freebies_ecards.html" class="ecards">send an ecard</a><br />
@@ -116,6 +116,24 @@
                     <img src="media/blank.gif" alt="" width="10" height="5">
                 </td>
             </tr>
+
+            <tr>
+                <td class="center" valign="top" width="750" style="background-color: #473923;" colspan="3">
+                    <img src="media/blank.gif" alt="" width="10" height="20">
+                </td>
+            </tr>
+            <tr>
+                <td class="center" valign="top" width="750" style="background-color: #473923;" colspan="3">
+                    <p>
+                        <a href="javascript:getLink()">Click here to copy a link to this ecard to your clipboard</a>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="center" valign="top" width="750" style="background-color: #473923;" colspan="3">
+                    <img src="media/blank.gif" alt="" width="10" height="10">
+                </td>
+            </tr>
         </table>
         
         <!-- E-CARD SCRIPT -->
@@ -131,6 +149,10 @@
                         if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
                     }); 
                 return result;
+            }
+
+            function getLink(){
+                navigator.clipboard.writeText(window.location);
             }
 
             document.getElementById("message").innerHTML = findGetParameter("message").split("+").join(" ");
