@@ -43,31 +43,37 @@
 
         </table>
 
+        
         <table cellpadding="0" cellspacing="0" width="750" class="center">
             <tr>
                 <td  valign="top" width="10" class="center" style="background-color: #473923;">
                     <img src="media/blank.gif" alt="" width="10" height="5">
                 </td>
+                
 
                 <td valign="top" width="730" class="center" style="background-color: #473923; text-align: center;">
 
                     <img src="media/versusville/game_scores_lineup.gif" alt="" width="408" height="173">
 
+                    <p style="text-align:center; color:#ffcc66;">These are the scoreboards for the 2021 patch</p>
+
                     <table cellpadding="5" cellspacing="2" width="100%">
                         <tr>
-                            <td valign="top" width="20%">
-                                <img src="media/blank.gif" alt="" width="40" height="1"><br>
+                            <td width="25%" valign="top">
+                                <p style="text-align: center;">WASTEBALL</p>
+                                <div id="wasteball"></div>
                             </td>
-
-                            <p style="text-align:center; color:#ffcc66;">This is the scoreboard for the 2021 patch</p>
-
-                            <!-- SCOREBOARD TABLE -->
-                            <td valign="top" width="100%">
-                                <div id="wasteballscores"></div>
+                            <td width="25%" valign="top">
+                                <p style="text-align: center;">GRAVE RAVE</p>
+                                <div id="graverave"></div>
                             </td>
-
-                            <td valign="top" width="20%">
-                                <img src="media/blank.gif" alt="" width="40" height="1"><br>
+                            <td width="25%" valign="top">
+                                <p style="text-align: center;">KART DART SCORES</p>
+                                <div id="kartdart"></div>
+                            </td>
+                            <td width="25%" valign="top">
+                                <p style="text-align: center;">KART DART TIMES</p>
+                                <div id="kartdart2"></div>
                             </td>
                         </tr>
                     </table>
@@ -92,29 +98,32 @@
                 xmlHttp.send();
             }
 
-            httpGetAsync("https://servlet.versusville.com:3001/wasteball", function(res){
-                var wbTable = "<table cellpadding=\"5\" cellspacing=\"2\" width=\"80%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Rank</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
-                
-                var entries = JSON.parse(res).sort(function(a, b){
-                    if(a.score > b.score) return -1;
-                    if(a.score < b.score) return 1;
-                    return 0;
-                });
+            httpGetAsync("https://servlet.versusville.com:3001/scores", function(res){
+                console.log(res);
+                var _data = JSON.parse(res)
+                for(const [key, value] of Object.entries(_data)){
+                    var wbTable = "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
+                    if(value.length >= 1){
+                        var entries = value.sort(function(a, b){
+                            if(a.score > b.score) return -1;
+                            if(a.score < b.score) return 1;
+                            return 0;
+                        });
 
-                for(var i=0; i<entries.length; i++){
-                    wbTable += "<tr><td style=\"color:#ffcc66; text-align: right;\">";
-                    wbTable += i+1;
-                    wbTable += "</td><td style=\"color:#ffcc66; text-align: left;\">"
-                    wbTable += entries[i].username;
-                    wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\">";
-                    wbTable += entries[i].score.toString();
-                    wbTable += "</tr></td>"
+                        for(var i=0; i<entries.length; i++){
+                            wbTable += "<tr><td style=\"color:#ffcc66; text-align: left;\">"
+                            wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].username;
+                            wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\">";
+                            wbTable += entries[i].score.toString();
+                            wbTable += "</tr></td>"
+                        }
+                    }
+
+                    wbTable += "</table>";
+
+                    document.getElementById(key).innerHTML = wbTable;
                 }
-                wbTable += "</table>";
-
-                document.getElementById("wasteballscores").innerHTML = wbTable;
             });
-
         </script>
 
     </body>
