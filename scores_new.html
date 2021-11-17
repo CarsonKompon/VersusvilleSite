@@ -59,21 +59,29 @@
 
                     <table cellpadding="5" cellspacing="2" width="100%">
                         <tr>
-                            <td width="25%" valign="top">
+                            <td width="50%" valign="top">
                                 <p style="text-align: center;">WASTEBALL</p>
                                 <div id="wasteball"></div>
                             </td>
-                            <td width="25%" valign="top">
+                            <td width="50%" valign="top">
                                 <p style="text-align: center;">GRAVE RAVE</p>
                                 <div id="graverave"></div>
                             </td>
-                            <td width="25%" valign="top">
-                                <p style="text-align: center;">KART DART SCORES</p>
-                                <div id="kartdart"></div>
+                        </tr>
+                    </table>
+                    <table cellpadding="5" cellspacing="2" width="100%">
+                        <tr>
+                            <td width="33%" valign="top">
+                                <p style="text-align: center;">KART DART TRACK #1</p>
+                                <div id="kartdart1t"></div>
                             </td>
-                            <td width="25%" valign="top">
-                                <p style="text-align: center;">KART DART TIMES</p>
-                                <div id="kartdart2"></div>
+                            <td width="34%" valign="top">
+                                <p style="text-align: center;">KART DART TRACK #2</p>
+                                <div id="kartdart2t"></div>
+                            </td>
+                            <td width="33%" valign="top">
+                                <p style="text-align: center;">KART DART TRACK #3</p>
+                                <div id="kartdart3t"></div>
                             </td>
                         </tr>
                     </table>
@@ -98,23 +106,34 @@
                 xmlHttp.send();
             }
 
+            function sortScore(a, b){
+                if(a.score > b.score) return -1;
+                if(a.score < b.score) return 1;
+                return 0;
+            }
+
+            function sortTime(a, b){
+                if(a.time > b.time) return 1;
+                if(a.time < b.time) return -1;
+                return 0;
+            }
             httpGetAsync("https://servlet.versusville.com:3001/scores", function(res){
-                console.log(res);
                 var _data = JSON.parse(res)
                 for(const [key, value] of Object.entries(_data)){
-                    var wbTable = "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
+                    var wbTable = ""
+                    if(key[key.length-1] == "t") wbTable += "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Time</td></tr>";
+                    else  wbTable += "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
                     if(value.length >= 1){
-                        var entries = value.sort(function(a, b){
-                            if(a.score > b.score) return -1;
-                            if(a.score < b.score) return 1;
-                            return 0;
-                        });
+                        var _sortFunc = sortScore;
+                        if(key[key.length-1] == "t") _sortFunc = sortTime;
+                        var entries = value.sort(_sortFunc);
 
                         for(var i=0; i<entries.length; i++){
                             wbTable += "<tr><td style=\"color:#ffcc66; text-align: left;\">"
                             wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].username;
                             wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\">";
-                            wbTable += entries[i].score.toString();
+                            if(key[key.length-1] == "t") wbTable += (entries[i].time/1000) + "s";
+                            else wbTable += entries[i].score.toString();
                             wbTable += "</tr></td>"
                         }
                     }
