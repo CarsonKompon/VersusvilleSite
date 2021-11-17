@@ -2,7 +2,6 @@
 
     <head>
         <title>Kenny vs. Spenny 2</title>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
         <link rel="stylesheet" type="text/css" href="kvs.css" />
         <script src="rollovers.js" type="text/javascript"></script>
     </head>
@@ -93,7 +92,7 @@
                 xmlHttp.send();
             }
 
-            httpGetAsync("http://servlet.versusville.com:3000/wasteball", function(res){
+            httpGetAsync("https://servlet.versusville.com:3001/wasteball", function(res){
                 var wbTable = "<table cellpadding=\"5\" cellspacing=\"2\" width=\"80%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Rank</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
                 
                 var entries = JSON.parse(res).sort(function(a, b){
