@@ -35,11 +35,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td valign="top" width="750" class="center" style="background-color: #473923;" colspan="3">
-                    <img src="media/blank.gif" alt="" width="10" height="10">
-                </td>
-            </tr>
+           
 
         </table>
 
@@ -55,49 +51,67 @@
 
                     <img src="media/versusville/game_scores_lineup.gif" alt="" width="408" height="173">
 
-                    <p style="text-align:center; color:#ffcc66;">These are the scoreboards for the 2021 patch</p>
+                    <p style="text-align:center; color:#ffcc66;">These are the scoreboards for the 202X patch</p>
+                    <a href="scores.html" class="smalltext" style="text-align:center; color:#FFEFB0;">Click here to view the original scoreboard from 2005</a>
+                    <br><br>
 
                     <table cellpadding="5" cellspacing="2" width="100%">
                         <tr>
                             <td width="33%" valign="top">
-                                <p style="text-align: center;">WASTEBALL</p>
-                                <div id="wasteball"></div>
+                                <p style="text-align: center;">
+                                    WASTEBALL<br>
+                                    <span class="scoresub">
+                                        <a id="wasteballscores5" href="javascript:">5min</a> | <a style="text-decoration: underline;" id="wasteballscores10" href="javascript:Wasteball10();">10min</a> | <a style="text-decoration: underline;" id="wasteballscores15" href="javascript:Wasteball15();">15min</a> | <a style="text-decoration: underline;" id="wasteballscores20" href="javascript:Wasteball20();">20min</a> | <a style="text-decoration: underline;" id="wasteballscores25" href="javascript:Wasteball25();">25min</a>
+                                    </span>
+                                </p>
+                                <div id="wasteball5"></div>
                             </td>
                             <td width="34%" valign="top">
-                                <p style="text-align: center;">GRAVE RAVE</p>
-                                <div id="graverave"></div>
+                                <p style="text-align: center;">
+                                    GRAVE RAVE<br>
+                                    <span class="scoresub">
+                                        <a id="graveravescores5" href="javascript:">5min</a> | <a style="text-decoration: underline;" id="graveravescores10" href="javascript:GraveRave10();">10min</a> | <a style="text-decoration: underline;" id="graveravescores15" href="javascript:GraveRave15();">15min</a> | <a style="text-decoration: underline;" id="graveravescores20" href="javascript:GraveRave20();">20min</a> | <a style="text-decoration: underline;" id="graveravescores25" href="javascript:GraveRave25();">25min</a>
+                                    </span>
+                                </p>
+                                <div id="graverave5"></div>
                             </td>
                             <td width="33%" valign="top">
-                                <p style="text-align: center;">RESIDENCE</p>
-                                <div id="residence"></div>
+                                <p style="text-align: center;">
+                                    RESIDENCE EVIL<br>
+                                    <span class="scoresub">
+                                        <a id="residencetimes" href="javascript:">Times</a> | <a style="text-decoration: underline;" id="residencescores" href="javascript:ResidenceScores();">Scores</a>
+                                    </span>
+                                </p>
+                                <div id="residencet"></div>
                             </td>
                         </tr>
                     </table>
+                    <br><br>
                     <table cellpadding="5" cellspacing="2" width="100%">
                         <tr>
                             <td width="33%" valign="top">
                                 <p style="text-align: center;">
-                                    KART DART TRACK #1<br>
-                                    <span class="smalltext">
-                                        <a id="kartdart1scores" href="javascript:KartDart1Scores();">Scores</a> | <a id="kartdart1times" href="">Times</a>
+                                    KART DART - SUPERMARKET SPEEDWAY<br>
+                                    <span class="scoresub">
+                                        <a id="kartdart1times" href="javascript:">Times</a> | <a style="text-decoration: underline;" id="kartdart1scores" href="javascript:KartDart1Scores();">Scores</a>
                                     </span>
                                 </p>
                                 <div id="kartdart1t"></div>
                             </td>
                             <td width="34%" valign="top">
                                 <p style="text-align: center;">
-                                    KART DART TRACK #2<br>
-                                    <span class="smalltext">
-                                        <a id="kartdart2scores" href="javascript:KartDart2Scores();">Scores</a> | <a id="kartdart2times" href="">Times</a>
+                                    KART DART - MARKET MADNESS<br>
+                                    <span class="scoresub">
+                                        <a id="kartdart2times" href="javascript:">Times</a> | <a style="text-decoration: underline;" id="kartdart2scores" href="javascript:KartDart2Scores();">Scores</a>
                                     </span>
                                 </p>
                                 <div id="kartdart2t"></div>
                             </td>
                             <td width="33%" valign="top">
                                 <p style="text-align: center;">
-                                    KART DART TRACK #3<br>
-                                    <span class="smalltext">
-                                        <a id="kartdart3scores" href="javascript:KartDart3Scores();">Scores</a> | <a id="kartdart3times" href="">Times</a>
+                                    KART DART - WILD IN THE AISLES<br>
+                                    <span class="scoresub">
+                                        <a id="kartdart3times" href="javascript:">Times</a> | <a style="text-decoration: underline;" id="kartdart3scores" href="javascript:KartDart3Scores();">Scores</a>
                                     </span>
                                 </p>
                                 <div id="kartdart3t"></div>
@@ -155,75 +169,73 @@
                 }
             }
 
-            function KartDart1Scores(){
-                var key = "kartdart1";
-                var value = _scoreboards.kartdart1;
+            function KartDart1Scores(){ SwapTable("KartDart1"); }
+            function KartDart1Times(){ SwapTable("KartDart1T"); }
+            function KartDart2Scores(){ SwapTable("KartDart2"); }
+            function KartDart2Times(){ SwapTable("KartDart2T"); }
+            function KartDart3Scores(){ SwapTable("KartDart3"); }
+            function KartDart3Times(){ SwapTable("KartDart3T"); }
+            function ResidenceScores(){ SwapTable("Residence"); }
+            function ResidenceTimes(){ SwapTable("ResidenceT"); }
+            function Wasteball5(){ CycleTable("Wasteball5"); }
+            function Wasteball10(){ CycleTable("Wasteball10"); }
+            function Wasteball15(){ CycleTable("Wasteball15"); }
+            function Wasteball20(){ CycleTable("Wasteball20"); }
+            function Wasteball25(){ CycleTable("Wasteball25"); }
+            function GraveRave5(){ CycleTable("GraveRave5"); }
+            function GraveRave10(){ CycleTable("GraveRave10"); }
+            function GraveRave15(){ CycleTable("GraveRave15"); }
+            function GraveRave20(){ CycleTable("GraveRave20"); }
+            function GraveRave25(){ CycleTable("GraveRave25"); }
+
+            function CycleTable(name){
+                var key = name.toLowerCase();
+                var value = _scoreboards[key];
                 if(value){
                     var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart1t");
+                    var _doc = document.getElementById(key.substring(0,9) + "5");
                     if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart1scores").href = "javascript:";
-                    document.getElementById("kartdart1times").href = "javascript:KartDart1Times()";
+                    var key2 = name.slice();
+                    for(var i=5; i<=25; i+=5){
+                        _doc = document.getElementById(key.substring(0,9) + "scores" + i.toString());
+                        if(i.toString() == key.substring(9,12)){
+                            _doc.href = "javascript:";
+                            _doc.style = "text-decoration:none;";
+                        }else{
+                            _doc.href = "javascript:" + key2.substring(0,9) + i.toString() + "();";
+                            _doc.style = "text-decoration:underline;";
+                        }
+                    }
                 }
             }
 
-            function KartDart1Times(){
-                var key = "kartdart1t";
-                var value = _scoreboards.kartdart1t;
+            function SwapTable(name){
+                var key = name.toLowerCase();
+                var time = key[key.length-1] == 't';
+                var value = _scoreboards[key];
                 if(value){
                     var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart1t");
+                    var _doc;
+                    if(time) _doc = document.getElementById(key);
+                    else _doc = document.getElementById(key + "t");
                     if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart1scores").href = "javascript:KartDart1Scores()";
-                    document.getElementById("kartdart1times").href = "javascript:";
-                }
-            }
-
-            function KartDart2Scores(){
-                var key = "kartdart2";
-                var value = _scoreboards.kartdart2;
-                if(value){
-                    var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart2t");
-                    if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart2scores").href = "javascript:";
-                    document.getElementById("kartdart2times").href = "javascript:KartDart2Times()";
-                }
-            }
-
-            function KartDart2Times(){
-                var key = "kartdart2t";
-                var value = _scoreboards.kartdart2t;
-                if(value){
-                    var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart2t");
-                    if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart2scores").href = "javascript:KartDart2Scores()";
-                    document.getElementById("kartdart2times").href = "javascript:";
-                }
-            }
-
-            function KartDart3Scores(){
-                var key = "kartdart3";
-                var value = _scoreboards.kartdart3;
-                if(value){
-                    var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart3t");
-                    if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart3scores").href = "javascript:";
-                    document.getElementById("kartdart3times").href = "javascript:KartDart3Times()";
-                }
-            }
-
-            function KartDart3Times(){
-                var key = "kartdart3t";
-                var value = _scoreboards.kartdart3t;
-                if(value){
-                    var wbTable = MakeTable(key, value);
-                    var _doc = document.getElementById("kartdart3t");
-                    if(_doc) _doc.innerHTML = wbTable;
-                    document.getElementById("kartdart3scores").href = "javascript:KartDart3Scores()";
-                    document.getElementById("kartdart3times").href = "javascript:";
+                    var key2 = name.slice();
+                    if(time){
+                        key2 = name.slice(0, -1); // Cut the t off
+                        _doc = document.getElementById(key2.toLowerCase() + "scores")
+                        _doc.href = "javascript:" + key2 + "Scores()";
+                        _doc.style = "text-decoration:underline;";
+                        _doc = document.getElementById(key2.toLowerCase() + "times");
+                        _doc.href = "javascript:";
+                        _doc.style = "text-decoration:none;";
+                    }else{
+                        _doc = document.getElementById(key2.toLowerCase() + "scores")
+                        _doc.href = "javascript:";
+                        _doc.style = "text-decoration:none;";
+                        _doc = document.getElementById(key2.toLowerCase() + "times");
+                        _doc.href = "javascript:" + key2 + "Times()";
+                        _doc.style = "text-decoration:underline;";
+                    }
                 }
             }
 
@@ -240,7 +252,7 @@
                         wbTable += "<tr><td style=\"color:#ffcc66; text-align: left;\">"
                         wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].username;
                         wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\">";
-                        if(key[key.length-1] == "t") wbTable += (entries[i].time/1000) + "s";
+                        if(key[key.length-1] == "t") wbTable += (entries[i].time/1000).toFixed(3) + "s";
                         else wbTable += entries[i].score.toString();
                         wbTable += "</tr></td>"
                     }
