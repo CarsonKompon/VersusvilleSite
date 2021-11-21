@@ -1,0 +1,197 @@
+<html>
+
+    <head>
+        <title>Kenny vs. Spenny</title>
+        <link rel="stylesheet" type="text/css" href="kvs.css" />
+        <script src="rollovers.js" type="text/javascript"></script>
+    </head>
+
+    <body onload="setupRollovers();">
+
+        <!-- HOMEPAGE HEADER -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750">
+                    <img src="media/header/home_header_kenny.gif" alt="Kenny" width="151" height="165"><a href="index.html"><img src="media/header/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165"></a><img src="media/header/home_header_spenny.gif" alt="Spenny" width="161" height="165">
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- NAVBAR -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" background="media/navbar/nav_background.gif"> 
+                    <img src="media/navbar/nav_filler.gif" alt="" width="48" height="30"><a href="competitions.html"><img src="media/navbar/nav_competitions_off.gif" hsrc="media/navbar/nav_competitions_on.gif" alt="Competitions" width="141" height="30"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="bios.html"><img src="media/navbar/nav_bios_off.gif" alt="Bios" width="54" height="30" hsrc="media/navbar/nav_bios_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="freebies.html"><img src="media/navbar/nav_freebies_off.gif" alt="Freebies" width="100" height="30" hsrc="media/navbar/nav_freebies_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="outtakes.html"><img src="media/navbar/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" hsrc="media/navbar/nav_outtakes_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="game.html"><img src="media/navbar/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" hsrc="media/navbar/nav_versusville_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="49" height="30">
+                </td>
+            </tr>
+        </table>
+
+        <!-- HEADER TEXT -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                    <img src="media/subheaders/scoreboard.jpg" alt="Versusville Scoreboard" width="750" height="75">
+                </td>
+            </tr>
+
+           
+
+        </table>
+
+        
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td  valign="top" width="10" class="center" style="background-color: #473923;">
+                    <img src="media/blank.gif" alt="" width="10" height="5">
+                </td>
+                
+
+                <td valign="top" width="730" class="center" style="background-color: #473923; text-align: center;">
+
+                    <img src="media/versusville/game_scores_lineup.gif" alt="" width="408" height="173">
+                    <br><br><br>
+                    <a href="scores_new.html" class="smalltext" style="text-align:center; color:#FFEFB0;">&lt; Go Back</a>
+                    <br><br>
+
+                    <table class="center" cellpadding="5" cellspacing="2" width="100%">
+                        <tr>
+                            <td width="25%" valign="top" style="text-align: center;">
+                                
+                            </td>
+                            <td width="50%" valign="top">
+                                <p style="text-align: center;">
+                                    KART DART - SUPERMARKET SPEEDWAY<br>
+                                    <span class="scoresub">
+                                        <a id="kartdart1times" href="javascript:">Times</a> | <a style="text-decoration: underline;" id="kartdart1scores" href="javascript:KartDart1Scores();">Scores</a>
+                                    </span>
+                                </p>
+                                <div id="kartdart1t"></div>
+                            </td>
+                            <td width="25%" valign="top" style="text-align: center;">
+                                
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br><br>
+
+                    <img src="media/blank.gif" alt="" width="10" height="5">
+                    
+                </td>
+
+            </tr>
+        </table>
+        <!-- CONTENT END -->
+
+        <script>
+
+            function httpGetAsync(theUrl, callback) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                        callback(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+                xmlHttp.send();
+            }
+
+            function sortScore(a, b){
+                if(a.score > b.score) return -1;
+                if(a.score < b.score) return 1;
+                return 0;
+            }
+
+            function sortTime(a, b){
+                if(a.time > b.time) return 1;
+                if(a.time < b.time) return -1;
+                return 0;
+            }
+
+            var _scoreboards = {};
+
+            httpGetAsync("https://servlet.versusville.com:3001/kartdart1", function(res){
+                var _data = JSON.parse(res);
+                _scoreboards = _data;
+                InitializeScoreboards();
+            });
+
+            function InitializeScoreboards(){
+                for(const [key, value] of Object.entries(_scoreboards)){
+                    var wbTable = MakeTable(key, value);
+
+                    var _div = document.getElementById(key);
+                    if(_div) _div.innerHTML = wbTable;
+                }
+            }
+
+            function KartDart1Scores(){ SwapTable("KartDart1"); }
+            function KartDart1Times(){ SwapTable("KartDart1T"); }
+
+            function SwapTable(name){
+                var key = name.toLowerCase();
+                var time = key[key.length-1] == 't';
+                var value = _scoreboards[key];
+                if(value){
+                    var wbTable = MakeTable(key, value);
+                    var _doc;
+                    if(time) _doc = document.getElementById(key);
+                    else _doc = document.getElementById(key + "t");
+                    if(_doc) _doc.innerHTML = wbTable;
+                    var key2 = name.slice();
+                    if(time){
+                        key2 = name.slice(0, -1); // Cut the t off
+                        _doc = document.getElementById(key2.toLowerCase() + "scores")
+                        _doc.href = "javascript:" + key2 + "Scores()";
+                        _doc.style = "text-decoration:underline;";
+                        _doc = document.getElementById(key2.toLowerCase() + "times");
+                        _doc.href = "javascript:";
+                        _doc.style = "text-decoration:none;";
+                    }else{
+                        _doc = document.getElementById(key2.toLowerCase() + "scores")
+                        _doc.href = "javascript:";
+                        _doc.style = "text-decoration:none;";
+                        _doc = document.getElementById(key2.toLowerCase() + "times");
+                        _doc.href = "javascript:" + key2 + "Times()";
+                        _doc.style = "text-decoration:underline;";
+                    }
+                }
+            }
+
+            function MakeTable(key, value){
+                var wbTable = ""
+                if(key[key.length-1] == "t"){
+                    wbTable += "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Time</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td></tr>";
+                }else{
+                    wbTable += "<table cellpadding=\"5\" cellspacing=\"2\" width=\"100%\"><tr><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: left;\">Name</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Score</td><td valign=\"top\" style=\"color:#ffcc66; background-color: #6c5630; font-weight: bold; text-align: right;\">Time</td></tr>";
+                }
+                if(value.length >= 1){
+                    var _sortFunc = sortScore;
+                    if(key[key.length-1] == "t") _sortFunc = sortTime;
+                    var entries = value.sort(_sortFunc);
+
+                    for(var i=0; i<entries.length; i++){
+                        var _date = new Date(Date.parse(entries[i].date));
+                        var _dateStr = _date.toLocaleDateString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
+                        wbTable += ""
+                        wbTable += "<tr><td style=\"color:#ffcc66; text-align: left;\"><span style=\"cursor:pointer;\" title=\"" + _dateStr + "\">"
+                        wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].username + "</span>";
+                        wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\"><span style=\"cursor:pointer;\" title=\"" + _dateStr + "\">";
+                        if(key[key.length-1] == "t") wbTable += (entries[i].time/1000).toFixed(3) + "s";
+                        else wbTable += entries[i].score.toString();
+                        wbTable += "</span></td><td style=\"color:#ffcc66; text-align: right;\"><span style=\"cursor:pointer;\" title=\"" + _dateStr + "\">";
+                        if(key[key.length-1] == "t") wbTable += entries[i].score.toString();
+                        else wbTable += (entries[i].time/1000).toFixed(3) + "s";
+                        wbTable += "</span></td></tr>"
+                    }
+                }
+
+                wbTable += "</table>";
+
+                return wbTable;
+            }
+
+        </script>
+
+    </body>
+</html>
