@@ -167,7 +167,7 @@
                         var _dateStr = _date.toLocaleDateString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
                         wbTable += ""
                         wbTable += "<tr><td style=\"color:#ffcc66; text-align: left;\"><span style=\"cursor:pointer;\" title=\"" + _dateStr + "\">"
-                        wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].username + "</span>";
+                        wbTable += "<b>#" + (i+1).toString() + "</b>   " + entries[i].displayname + "</span>";
                         wbTable += "</td><td style=\"color:#ffcc66; text-align: right;\"><span style=\"cursor:pointer;\" title=\"" + _dateStr + "\">";
                         if(key[key.length-1] == "t") wbTable += (entries[i].time/1000).toFixed(3) + "s";
                         else wbTable += entries[i].score.toString();
