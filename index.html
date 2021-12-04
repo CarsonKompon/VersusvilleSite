@@ -1,28 +1,182 @@
 <!--
-please let us know if you have or know someone who has versusville
-contact@versusville.com
+Kenny vs Spenny: Versusville Revival Site
+By Carson Kompon
+https://github.com/CarsonKompon/VersusvilleSite/
+
+This is based on files received from Library and Archives Canada and snapshots from WayBackMachine.
+The "master" branch contains this version of the website which I've restored to the best of my abilities with new content, optimized for modern browsers.
+The "original" branch contains the files received from Library and Archives Canada as they were.
+
+I am not affiliated with Kenny vs Spenny, Breakthrough Media, or the CBC.
+I'm just trying to preserve the website as it once was for modern browsers. (With benefitting modifications)
 -->
 
 <html>
     
     <head>
         <title>Kenny vs. Spenny</title>
+        <link rel="stylesheet" type="text/css" href="kvs.css" />
+        <script src="rollovers.js" type="text/javascript"></script>
     </head>
 
-    <body>
+    <body onload="setupRollovers();">
 
-        <table width="100%" height="100%">
+        <!-- HOMEPAGE HEADER -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
             <tr>
-                <td align="center" width="100%" height="100%">
-                    <img id="meme" />
+                <td valign="top" width="750">
+                    <img src="media/header/home_header_kenny.gif" alt="Kenny" width="151" height="165"><a href="index.html"><img src="media/header/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165"></a><img src="media/header/home_header_spenny.gif" alt="Spenny" width="161" height="165">
                 </td>
             </tr>
         </table>
 
-        <script>
-            var _m = Math.floor(Math.random()*5)+1;
-            document.getElementById("meme").src = "media/memes/meme" + _m.toString() + ".jpg";
-        </script>
+
+        <!-- NAVBAR -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" background="media/navbar/nav_background.gif"> 
+                    <img src="media/navbar/nav_filler.gif" alt="" width="48" height="30"><a href="competitions.html"><img src="media/navbar/nav_competitions_off.gif" hsrc="media/navbar/nav_competitions_on.gif" alt="Competitions" width="141" height="30"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="bios.html"><img src="media/navbar/nav_bios_off.gif" alt="Bios" width="54" height="30" hsrc="media/navbar/nav_bios_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="freebies.html"><img src="media/navbar/nav_freebies_off.gif" alt="Freebies" width="100" height="30" hsrc="media/navbar/nav_freebies_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="outtakes.html"><img src="media/navbar/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" hsrc="media/navbar/nav_outtakes_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="game.html"><img src="media/navbar/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" hsrc="media/navbar/nav_versusville_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="49" height="30">
+                </td>
+            </tr>
+        </table>
+
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <!-- KENNY VS SPENNY SYNOPSIS -->
+                <td valign="top" width="10" class="center" style="background-color: #473923;">
+                    <img src="media/home/home_best_friends_1.gif" alt="Best Friends, Worst Enemies" width="10" height="139">
+                </td>
+
+                <td valign="top" width="307" style="background-color: #473923;">
+                    <img src="media/home/home_best_friends_2.gif" alt="Best Friends, Worst Enemies" width="307" height="139"><br />
+
+                    <table cellpadding="0" cellspacing="0" width="307" background="media/home/home_intro_background.gif">
+                        <tr>
+                            <td valign="top" width="20">
+                                <img src="media/blank.gif" alt="" width="20" height="10" >
+                            </td>
+                            
+                            <td valign="top" width="277" background="media/home/home_intro_background_ns.gif">
+                            
+                                <p>Kenny and Spenny are two best friends who compete against each other. Their competitions are ridiculous, immature and totally intense.</p>
+
+                                <p>
+                                    <img src="media/home/home_intro_samurai.jpg" alt="Samurai Kenny and Samurai Spenny" width="277" height="146">
+                                </p>
+
+                                <table cellpadding="0" cellspacing="0" width="277" background="media/home/home_intro_background_ns.gif">
+                                    <tr>
+                                        <td valign="top" width="133" background="media/home/home_intro_background_ns.gif">
+                                            <p class="smalltext">
+                                                <b>Kenny:</b> A witty wise-cracker and brilliant schemer. Kenny's a goofball looking for a shortcut. He loves to humiliate Spenny and will do anything to win.
+                                            </p>
+                                        </td>
+
+                                        <td valign="top" width="10" background="media/home/home_intro_background_ns.gif">
+                                            <img src="media/blank.gif" alt="" width="10" height="10">
+                                        </td>
+
+                                        <td valign="top" width="134" background="media/home/home_intro_background_ns.gif">
+                                            <p class="smalltext">
+                                                <b>Spenny:</b> A stressed out, neurotic, short-fused adult-type who believes in preparation and hard work. He's responsible, often angry, introspective, paranoid and ethical.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <p>Why do they constantly compete? No one's sure but it's a fact that they are a pathetic example of the male species!  So, if you want to be like them, we suggest you immediately contact a psychiatrist.</p>
+                                
+                                <img src="media/blank.gif" alt="" width="10" height="2">
+                            </td>
+
+                            <td valign="top" width="10" background="media/home/home_intro_background_ns.gif">
+                                <img src="media/blank.gif" alt="" width="10" height="10">
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <!-- FREE STUFF -->
+
+                <td valign="top" width="15" style="background-color: #473923;">
+                    <img src="media/blank.gif" alt="" width="15" height="10">
+                </td>
+
+                <td valign="top" width="408" style="background-color: #473923;">
+                    <img src="media/home/home_free_stuff.gif" alt="Free Stuff" width="408" height="94"><br>
+                    <img src="media/blank.gif" alt="" width="10" height="10">
+                    
+                    <a href="game.html">
+                        <img src="media/home/home_teaser_versusville.jpg" alt="Versusville" width="408" height="175">
+                    </a>
+                    
+                    <img src="media/blank.gif" alt="" width="10" height="15"><br />
+
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td rowspan="3">
+                                <a href="best_friends_worst_enemies.html">
+                                    <img src="media/home/home_freestuff_mobilegame.gif" alt="Game" width="178" height="267">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="freebies_ecards.html">
+                                    <img src="media/home/home_freestuff_ecard.gif" alt="Ecard" width="231" height="90">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="freebies.html">
+                                    <img src="media/home/home_freestuff_desktop.gif" alt="Desktop" width="231" height="86">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="freebies.html">
+                                    <img src="media/home/home_freestuff_screen.gif" alt="Screensaver" width="231" height="91">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="center" style="text-align: center;">
+                        <a href="quest_for_the_family_jewels.html">
+                            <img src="media/home/home_questforthefamilyjewels.png" alt="Versusville" width="346" height="105">
+                        </a>
+                    </div>
+                    
+                </td>
+            </tr>
+        </table>
+        
+
+        <!-- LINKS TO OFFICIAL KENNY VS SPENNY WEBSITES -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                    <img src="media/blank.gif" alt="" width="1" height="1">
+                    <p style="text-align: center">
+                        <a href="http://kennyvsspenny.tv/">Click here to go to KennyVsSpenny.tv</a><br>
+                        <a href="https://web.archive.org/web/20050421175016/http://www.cbc.ca/kennyvsspenny/index.html">Click here to view the original Versusville site through Wayback Machine</a>
+                    </p>
+                    <img src="media/blank.gif" alt="" width="1" height="1">
+                </td>
+            </tr>
+        </table>
+
+        <!-- DISCLAIMER -->
+        <table width="100%" cellspacing="0" cellpadding="10">
+            <tr>
+                <td class="xsblack" valign="bottom" height="15" class="center">
+                    <p class="smalltext" style="text-align: center; color: #ffffff;">
+                        DISCLAIMER: I am not affiliated with Kenny vs Spenny, Breakthrough Media, or the CBC. I'm just trying to preserve the website as it once was for modern browsers.<br/>
+                    </p>
+                </td>
+            </tr>
+        </table>
 
     </body>
 

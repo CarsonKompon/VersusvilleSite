@@ -1,185 +1,175 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
 <html>
-<head>
-<title>Kenny vs. Spenny</title>
-<link rel="stylesheet" type="text/css" href="kvs.css" />
-<script src="rollovers.js" type="text/javascript"></script>
+    <head>
+        <title>Kenny vs. Spenny</title>
+        <link rel="stylesheet" type="text/css" href="kvs.css" />
+        <script src="rollovers.js" type="text/javascript"></script>
+        <script>
+            var remo;
 
-<script>
+            // README Popup Window
+            function pop() {
+                rem = window.open("readme_new.html","pop","scrollbars=1,resizable=no,width=740,height=550,screenX=0,screenY=0,left=0,top=0");
+                if (rem.opener == null) rem.opener = window; 
+                rem.opener.name = "opener";
+                rem.focus();
+            }
 
-var remo;
-
-function pop() {
-			rem = window.open("readme.html","pop","scrollbars=1,resizable=no,width=580,height=500,screenX=0,screenY=0,left=0,top=0");
-			if (rem.opener == null) rem.opener = window; 
-			rem.opener.name = "opener";
-			rem.focus();
-}
-
-function disclaim() {
-			remo = window.open("disclaimer.html","claim","scrollbars=0,resizable=no,width=300,height=200,screenX=100,screenY=100,left=100,top=100");
-			if (remo.opener == null) remo.opener = window; 
-			remo.opener.name = "opener";
-			remo.focus();
-}
-
-function cont(val) {
-if (val == 1) {
-	window.location = "http://www.cbc.ca/netstorage/kids/kennyvsspenny_v2.exe";
-	remo.close();
-	}
-if (val == 0) {
- remo.close();
-} 
-}	
-</script>
-</head>
-
-<body onload="setupRollovers();">
-<div align="left">
-<!--#include virtual="/includes/topnav_stretch_nopulldown.html"-->
-</div>
-
-<!-- HOMEPAGE HEADER START -->
-<table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
-    <tr>
-    <td align="center" valign="top" width="750" bgcolor="#9d8e62">
-    <img src="media/home_header_kenny.gif" alt="Kenny" width="151" height="165" border="0"><a href="index.html"><img src="media/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165" border="0"></a><img src="media/home_header_spenny.gif" alt="Spenny" width="161" height="165" border="0"></td>
-    </tr>
-    </table>
-    <!-- HOMEPAGE HEADER END -->
+            // Disclaimer Popup Window
+            function disclaim() {
+                remo = window.open("disclaimer.html","claim","scrollbars=0,resizable=no,width=300,height=200,screenX=100,screenY=100,left=100,top=100");
+                remo.focus();
+            }
+        </script>
+    </head>
     
-    
-    <!-- NAVBAR START-->
-    <table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
-        <tr>
-        <td align="center" valign="top" width="750" background="media/nav_background.gif"> 
-        <a href="competitions.html"><img src="media/nav_filler.gif" alt="" width="48" height="30" border="0"><img src="media/nav_competitions_off.gif" hsrc="media/nav_competitions_on.gif" alt="Competitions" width="141" height="30" border="0"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="bios.html"><img src="media/nav_bios_off.gif" alt="Bios" width="54" height="30" border="0" hsrc="media/nav_bios_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="freebies.html"><img src="media/nav_freebies_off.gif" alt="Freebies" width="100" height="30" border="0" hsrc="media/nav_freebies_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="outtakes.html"><img src="media/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" border="0" hsrc="media/nav_outtakes_on.gif"></a><img src="media/nav_filler.gif" alt="" width="25" height="30" border="0"><a href="game.html"><img src="media/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" border="0" hsrc="media/nav_versusville_on.gif"></a><img src="media/nav_filler.gif" alt="" width="49" height="30" border="0"></td>
-        </tr>
+    <body onload="setupRollovers();">
+
+        <!-- HOMEPAGE HEADER -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750">
+                    <img src="media/header/home_header_kenny.gif" alt="Kenny" width="151" height="165"><a href="index.html"><img src="media/header/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165"></a><img src="media/header/home_header_spenny.gif" alt="Spenny" width="161" height="165">
+                </td>
+            </tr>
         </table>
-        <!-- NAVBAR END-->
-
-<!--#include virtual="includes/header.html"-->
-<!--#include virtual="includes/navbar.html"-->
-
-<!-- SUBHEAD START -->
-</div>
-<table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
-<tr>
-
-<td align="left" valign="top" width="750" bgcolor="#473923">
-<img src="media/blank.gif" alt="" width="10" height="15" border="0"><br />
-<img src="media/game_subhead.jpg" alt="Kenny vs Spenny Versusville" width="750" height="73" border="0"></td>
-
-</tr>
-</table>
-<!-- SUBHEAD END -->
-
-<!-- CONTENT START -->
-<table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
-  <tr> 
-	<td align="center" valign="top" width="10" bgcolor="#473923"> <img src="media/blank.gif" alt="" width="10" height="10" border="0"></td>
-	
-	<td align="left" valign="top" width="355" bgcolor="#473923">
-
-        <a href="coming_soon.html"><img src="media/new/header_coming_soon.png" alt="Versusville Introduction" width="355" height="98" border="0"></a><br />
-
-    <a href="coming_soon.html"><p style="text-align: center;">Click here to view the original coming soon page.</p></a>
-
-    <video width="300" height="220" autoplay muted loop>
-        <source src="restored/kenny_rotate.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-    <a href="media/kenny_rotate.mov"><p>Rotating Kenny (2.16 MB)</p></a>
-
-    <video width="300" height="220" autoplay muted loop>
-        <source src="restored/spenny_rotate.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-    <a href="media/spenny_rotate.mov"><p>Rotating Spenny (1.69 MB)</p></a>
-	
-	</td>
-    
-	<td align="center" valign="top" width="10" bgcolor="#473923"><img src="media/blank.gif" alt="" width="10" height="10" border="0"></td>
-	 
-	<td align="center" valign="top" width="10" bgcolor="#5D5037"><img src="media/blank.gif" alt="" width="10" height="10" border="0"></td>
-	 
-	<td align="left" valign="top" width="355" bgcolor="#5D5037">
-	
-	<img src="media/game_header_download.gif" alt="Download Versusville" width="355" height="98" border="0"><br />
-	<p align="center" class="headline"><a href="games/kennyvsspenny_v2.exe">Download Versusville</a> (82mb)<br>
-        <a href="games/kennyvsspenny_patch1.exe">Download the Patch</a> (4.3mb)<br>
-        <a href="games/KvSPrototype03.exe">Download the Prototype</a> (32mb)<br>
-	View the <a href="javascript:pop();">Readme</a> file.
-	</p>
-	<!--p><span class="headline">Game Coming soon....  Apparently Kenny is still testing it.</span></p-->
-	
-	<table cellpadding="5" cellspacing="0" border="0" width="100%">
-	<tr>
-	<td align="left" valign="top" width="50%">
-	
-	<p class="smalltext">Minimum requirements:</p>
-	<p class="smalltext">
-	&middot; Windows 98, ME, 2000 or XP<br />
-	&middot; 733 MHz Intel Pentium III<br />
-	&middot; 128MB of RAM<br />
-	&middot; 180 MB free hard disk space<br />
-	&middot; 32 MB 3D video card<br />
-	&middot; DirectX 8.1<br />
-	&middot; DirectX 8.1 compatible sound card<br />
-	&middot; Keyboard<br />
-	&middot; Mouse<br />
-	</p>
-	
-	</td>
-	<td align="left" valign="top" width="50%">
-	
-	<p class="smalltext">Recommended requirements:</p>
-	<p class="smalltext">
-	&middot; Windows 98, ME, 2000 or XP<br />
-	&middot; 1.5 GHz Intel Pentium IV<br />
-	&middot; 256MB of RAM<br />
-	&middot; 180 MB free hard disk space<br />
-	&middot; 64 MB 3D video card<br />
-	&middot; DirectX 8.1<br />
-	&middot; DirectX 8.1 compatible sound card<br />
-	&middot; Keyboard<br />
-	&middot; Mouse<br />
-	</p>
-	
-	</td>
-	</tr>
-	</table>
-	
-	<a href="design_document.pdf"><img src="media/new/header_design_documents.png" alt="Behind The Scenes" width="355" height="98" border="0"></a><br />
-    <p>This is the full Game Design Document used in the creation of Versusville graciously given to us by Mark Greenshields. It contains concept art, level design, and tons of other interesting info!</p>
-    
-    <a style="text-align: center;" href="design_document.pdf"><p class="headline">Click here to view</p></a>
-	
-	</td>
-	 
-    <td align="center" valign="top" width="10" bgcolor="#5D5037"> <img src="media/blank.gif" alt="" width="10" height="10" border="0"></td>
-  </tr>
-
-</table>
-<!-- CONTENT END -->
-
-<!-- SUBHEAD START -->
-<table cellpadding="0" cellspacing="0" border="0" width="750" align="center">
-<tr>
-
-<td align="left" valign="top" width="750" bgcolor="#473923">
-<img src="media/game_credits.gif" border="0" vspace="10" height="46" width="730"></td>
-
-</tr>
-</table>
-<!-- SUBHEAD END -->
-
-<!--#include virtual="includes/footer.html"-->
 
 
+        <!-- NAVBAR -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" background="media/navbar/nav_background.gif"> 
+                    <img src="media/navbar/nav_filler.gif" alt="" width="48" height="30"><a href="competitions.html"><img src="media/navbar/nav_competitions_off.gif" hsrc="media/navbar/nav_competitions_on.gif" alt="Competitions" width="141" height="30"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="bios.html"><img src="media/navbar/nav_bios_off.gif" alt="Bios" width="54" height="30" hsrc="media/navbar/nav_bios_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="freebies.html"><img src="media/navbar/nav_freebies_off.gif" alt="Freebies" width="100" height="30" hsrc="media/navbar/nav_freebies_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="outtakes.html"><img src="media/navbar/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" hsrc="media/navbar/nav_outtakes_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="game.html"><img src="media/navbar/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" hsrc="media/navbar/nav_versusville_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="49" height="30">
+                </td>
+            </tr>
+        </table>
 
+        <!-- HEADER TEXT -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                    <img src="media/subheaders/versusville_two_tone.jpg" alt="Kenny vs Spenny Versusville" width="750" height="75">
+                </td>
+            </tr>
+        </table>
 
-</body>
+        
+        <table cellpadding="0" cellspacing="0" width="750" class="center" style="text-align: center;">
+        <tr> 
+            <td class="center" valign="top" width="10" style="background-color: #473923;"> <img src="media/blank.gif" alt="" width="10" height="10"></td>
+            
+            <td valign="top" width="355" style="background-color: #473923;">
+
+                <!-- COMING SOON PAGE -->
+                <a href="coming_soon.html"><img src="media/versusville/new/header_coming_soon.png" alt="Versusville Coming Soon" width="355" height="98"></a><br />
+
+                <a href="coming_soon.html"><p style="text-align: center;">Click here to view the original coming soon page.</p></a>
+                
+                <!-- ROTATING KENNY AND SPENNY HEADS -->
+                <table style="text-align: center;">
+                    <tr>
+                        <td style="text-align: center; width: 200px">
+                            <video width="150" height="110" autoplay muted loop>
+                                <source src="media/versusville/coming_soon/kenny_rotate.mp4" type="video/mp4">
+                                <img width="150" height="110" src="media/versusville/coming_soon/kenny_head.jpg">
+                            </video>
+                            <a href="downloads/versusville/kenny_rotate.mov"><p style="font-size: 12px">Rotating Kenny (2.16 MB)</p></a>
+                        </td>
+                        <td style="text-align: center; width: 200px">
+                            <video width="150" height="110" autoplay muted loop>
+                                <source src="media/versusville/coming_soon/spenny_rotate.mp4" type="video/mp4">
+                                <img width="150" height="110" src="media/versusville/coming_soon/spenny_head.jpg">
+                            </video>
+                            <a href="downloads/versusville/spenny_rotate.mov"><p style="font-size: 12px">Rotating Spenny (1.69 MB)</p></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="center" valign="top" width="10" style="background-color: #473923;"><img src="media/blank.gif" alt="" width="10" height="4"></td>
+                    </tr>
+                </table>
+
+                <!-- GAME ASSETS DOWNLOADS -->
+                <img src="media/versusville/new/header_game_assets.png" alt="Versusville Assets" width="355" height="98"><br />
+                <p class="headline">
+                    <a href="downloads/versusville/versusville_textures.zip">Download Textures</a> (21.1mb)<br>
+                    <a href="downloads/versusville/versusville_sounds.zip">Download Sounds/Music</a> (17.7mb)<br>
+                    <a href="downloads/versusville/versusville_3ds_max_models.zip">Download 3DS Max Models</a> (15.9mb)<br>
+                    <a href="https://mega.nz/file/MUlQGbID#p0i92K_-zRKGOngX5I-XgriST4-JpB-bji1yY-O_RUA">Download HD Model Renders</a> (1.65gb)<br>
+                </p>
+                <p>
+                    Textures and sounds are taken directly from the game's files, while the 3DS Max Models are leftover files that Mark Greenshields dug up from development. (With exported fbx models for the Residence and Wasteball maps)
+                    <br><br>
+                    The HD Model Renders are high-quality renders of each of the 3DS Max Models as gifs with still-frame pngs included. (Excluding the Residence and Wasteball maps)
+                    <br><br>
+                    If you can find a way to make use of any of the model or map files found in-game, please reach out to us via the
+                    <a href="https://discord.gg/7cSJM2xbq7">Kenny Hotz Official Discord</a>
+                </p>
+
+                <img src="media/blank.gif" alt="" width="10" height="15"><br />
+            </td>
+            
+            <td class="center" valign="top" width="10" style="background-color: #473923;"><img src="media/blank.gif" alt="" width="10" height="10"></td>
+            
+            <td class="center" valign="top" width="10" style="background-color: #5D5037;"><img src="media/blank.gif" alt="" width="10" height="10"></td>
+            
+            <td valign="top" width="355" style="background-color: #5D5037;">
+            
+            <!-- VERSUSVILLE DOWNLOADS -->
+            <img src="media/versusville/game_header_download.gif" alt="Download Versusville" width="355" height="98"><br />
+            <p class="headline" style="text-align: center;">
+                <span style="font-size: 12px;">- Versusville -</span> <br>
+                <a class="download-versusville" href="https://github.com/CarsonKompon/Versusville202XPatch/releases/download/original/kennyvsspenny_v2.exe">Download Versusville</a> (82mb)<br>
+                <a class="download-patch" href="https://github.com/CarsonKompon/Versusville202XPatch/releases/download/original/kennyvsspenny_patch1.exe">Download the Patch</a> (4.3mb)<br>
+                <a class="download-prototype" href="https://github.com/CarsonKompon/Versusville202XPatch/releases/download/original/KvSPrototype03.exe">Download the Prototype</a> (32mb)<br>
+                <span style="font-size: 12px;">- 202X Patch -</span> <br>
+                <a class="download-patch-202x">Download the 2021.1 Patch</a> (4.2mb)<br>
+                <span style="font-size: 10px; font-weight: 100;">Requires Versusville, View the patch's <a href="javascript:pop();">README</a> file.</span>
+            </p>
+            
+            <p style="text-align: center;">
+                Thanks to anyone and everyone who played a role in finding the game! We literally could not have gotten to where we are without you all &lt;3
+                <br><br>
+                <a href="about.html">Click here to learn more about Versusville's history</a>
+            </p>
+            
+            <!-- VIEW THE SCOREBOARD -->
+            <a href="scores.html"><img src="media/versusville/game_header_scores.gif" alt="See the Scoreboard" width="355" height="98"></a><br />
+            <p>The <a class="download-patch-202x">202X Patch</a> re-enables Leaderboard Support for versusville.com alongside various minor changes/bug fixes.</p>
+            <span class="headline" style="text-align: center;">
+                <p class="headline">Elite or Noob? <a href="scores_new.html">View the Scoreboard!</a></p>
+            </span>
+
+            <!-- DESIGN DOCUMENT DOWNLOAD -->
+            <a href="downloads/versusville/design_document.pdf"><img src="media/versusville/new/header_design_documents.png" alt="Behind The Scenes" width="355" height="98"></a><br />
+            <p style="text-align: center;">
+                This is the full Game Design Document used in the creation of Versusville graciously given to us by Mark Greenshields. It contains concept art, level design, and tons of other interesting info!
+            </p>
+            
+            <p class="headline" style="text-align: center;">
+                <a href="downloads/versusville/design_document.pdf">View the Design Document</a>
+            </p>
+            <br>
+            
+            </td>
+            
+            <td class="center" valign="top" width="10" style="background-color: #5D5037;"> <img src="media/blank.gif" alt="" width="10" height="10"></td>
+        </tr>
+
+        </table>
+
+        <!-- VERSUSVILLE CREDITS -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                <img src="media/versusville/game_credits.gif" vspace="10" height="46" width="730"></td>
+            </tr>
+        </table>
+        
+        <!-- LOAD DOWNLOAD LINKS -->
+        <script>
+            // 2021 Patch Download
+            var downloadPatch2021 = document.getElementsByClassName("download-patch-202x")
+            for(var i=0; i<downloadPatch2021.length; i++){ downloadPatch2021[i].href = "https://github.com/CarsonKompon/Versusville202XPatch/releases/download/patch/versusville_2021_1.exe"; }
+        </script>
+
+    </body>
 </html>
