@@ -134,7 +134,11 @@ h3 { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
     color:#ffcc66;
     line-height:150%;
 }	
-	
+
+.servletip {
+	width: 220px;
+}
+
 div.float {
     float: left;
     width: 50%;

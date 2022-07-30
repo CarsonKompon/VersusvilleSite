@@ -55,6 +55,12 @@
                     <a href="javascript:history.go(-1);" class="smalltext" style="text-align:center; color:#FFEFB0;">&lt; Go Back</a>
                     <br><br>
 
+                    <p>
+                        Servlet IP:
+                        <input type="text" id="servletip" name="servletip" class="servletip" onkeydown="textEnter(this)" placeholder="https://servlet.versusville.com:3001">
+                        <button onclick="loadServlet()" id="servletbtn" name="servletbtn">Go</button>
+                    </p>
+
                     <table class="center" cellpadding="5" cellspacing="2" width="100%">
                         <tr>
                             <td width="25%" valign="top" style="text-align: center;">
@@ -86,6 +92,37 @@
         <!-- CONTENT END -->
 
         <script>
+            var currentIp = document.cookie;
+
+            if(document.cookie != ""){
+                document.getElementById("servletip").value = document.cookie;
+            }else{
+                currentIp = "https://servlet.versusville.com:3001";
+            }
+
+            function loadServlet(_check = true){
+                var _canGo = true;
+                var _txt = document.getElementById("servletip").value;
+                if(_check && _txt != ""){
+                    document.cookie = _txt;
+                    if(document.cookie === currentIp) _canGo = false;
+                    currentIp = document.cookie;
+                }
+                console.log(currentIp);
+                if(_canGo){
+                    httpGetAsync(currentIp + "/kartdart1", function(res){
+                        var _data = JSON.parse(res);
+                        _scoreboards = _data;
+                        InitializeScoreboards();
+                    });
+                }
+            }
+
+            function textEnter(ele) {
+                if(event.key === 'Enter') {
+                    loadServlet();     
+                }
+            }
 
             function httpGetAsync(theUrl, callback) {
                 var xmlHttp = new XMLHttpRequest();
@@ -111,11 +148,7 @@
 
             var _scoreboards = {};
 
-            httpGetAsync("https://servlet.versusville.com:3001/kartdart1", function(res){
-                var _data = JSON.parse(res);
-                _scoreboards = _data;
-                InitializeScoreboards();
-            });
+            loadServlet(false);
 
             function InitializeScoreboards(){
                 for(const [key, value] of Object.entries(_scoreboards)){

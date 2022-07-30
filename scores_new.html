@@ -52,10 +52,18 @@
 
                     <img src="media/versusville/game_scores_lineup.gif" alt="" width="408" height="173">
 
-                    <p style="text-align:center; color:#ffcc66;">These are the scoreboards for the 202X patch</p>
-                    <a href="scores.html" class="smalltext" style="text-align:center; color:#FFEFB0;">Click here to view the original scoreboard from 2005</a>
-                    <br><br>
+                    <p style="text-align:center; color:#ffcc66;">This is a scoreboard viewer for 202X Patch Servlets</p>
+                    <a href="scores.html" class="smalltext" style="text-align:center; color:#FFEFB0;">Click here to view the final scoreboard from 2005</a>
 
+                    <br><br>
+                    
+                    <p>
+                        Servlet IP:
+                        <input type="text" id="servletip" name="servletip" class="servletip" onkeydown="textEnter(this)" placeholder="https://servlet.versusville.com:3001">
+                        <button onclick="loadServlet()" id="servletbtn" name="servletbtn">Go</button>
+                    </p>
+
+                    <br>
 
                     <table cellpadding="5" cellspacing="2" width="100%">
                         <tr>
@@ -145,7 +153,39 @@
 
         <script>
 
-            function httpGetAsync(theUrl, callback) {
+            var currentIp = document.cookie;
+
+            if(document.cookie != ""){
+                document.getElementById("servletip").value = document.cookie;
+            }else{
+                currentIp = "https://servlet.versusville.com:3001";
+            }
+
+            function loadServlet(_check = true){
+                var _canGo = true;
+                var _txt = document.getElementById("servletip").value;
+                if(_check && _txt != ""){
+                    document.cookie = _txt;
+                    if(document.cookie === currentIp) _canGo = false;
+                    currentIp = document.cookie;
+                }
+                console.log(currentIp);
+                if(_canGo){
+                    httpGetAsync(currentIp + "/scores", function(res){
+                        var _data = JSON.parse(res);
+                        _scoreboards = _data;
+                        InitializeScoreboards();
+                    });
+                }
+            }
+
+            function textEnter(ele) {
+                if(event.key === 'Enter') {
+                    loadServlet();     
+                }
+            }
+
+            function httpGetAsync(theUrl, callback){
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() { 
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
@@ -169,11 +209,7 @@
 
             var _scoreboards = {};
 
-            httpGetAsync("https://servlet.versusville.com:3001/scores", function(res){
-                var _data = JSON.parse(res);
-                _scoreboards = _data;
-                InitializeScoreboards();
-            });
+            loadServlet(false);
 
             function InitializeScoreboards(){
                 for(const [key, value] of Object.entries(_scoreboards)){
