@@ -104,7 +104,11 @@
             function loadServlet(_check = true){
                 var _canGo = true;
                 var _txt = document.getElementById("servletip").value;
-                if(_check && _txt != ""){
+                if(_check){
+                    if(_txt === ""){
+                        _txt = "https://servlet.versusville.com:3001";
+                        document.cookie = "";
+                    }
                     document.cookie = _txt;
                     if(document.cookie === currentIp) _canGo = false;
                     currentIp = document.cookie;
