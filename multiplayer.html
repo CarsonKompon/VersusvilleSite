@@ -1,0 +1,124 @@
+<html>
+
+    <head>
+        <title>Kenny vs Spenny - Versusville Multiplayer Guide</title>
+        <link rel="icon" type="image/x-icon" href="/kvs.ico">
+        <link rel="stylesheet" type="text/css" href="kvs.css"/>
+        <script src="rollovers.js" type="text/javascript"></script>
+    </head>
+    
+    <body onload="setupRollovers();">
+        <!-- HOMEPAGE HEADER -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750">
+                    <img src="media/header/home_header_kenny.gif" alt="Kenny" width="151" height="165"><a href="index.html"><img src="media/header/home_header_kvs.jpg" alt="Kenny vs. Spenny" width="438" height="165"></a><img src="media/header/home_header_spenny.gif" alt="Spenny" width="161" height="165">
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- NAVBAR -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" background="media/navbar/nav_background.gif"> 
+                    <img src="media/navbar/nav_filler.gif" alt="" width="48" height="30"><a href="competitions.html"><img src="media/navbar/nav_competitions_off.gif" hsrc="media/navbar/nav_competitions_on.gif" alt="Competitions" width="141" height="30"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="bios.html"><img src="media/navbar/nav_bios_off.gif" alt="Bios" width="54" height="30" hsrc="media/navbar/nav_bios_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="freebies.html"><img src="media/navbar/nav_freebies_off.gif" alt="Freebies" width="100" height="30" hsrc="media/navbar/nav_freebies_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="outtakes.html"><img src="media/navbar/nav_outtakes_off.gif" alt="Outtakes" width="106" height="30" hsrc="media/navbar/nav_outtakes_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="25" height="30"><a href="game_new.html"><img src="media/navbar/nav_versusville_off.gif" alt="Play the Game" width="152" height="30" hsrc="media/navbar/nav_versusville_on.gif"></a><img src="media/navbar/nav_filler.gif" alt="" width="49" height="30">
+                </td>
+            </tr>
+        </table>
+
+        <!-- HEADER TEXT -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                    <img src="media/subheaders/versusville_multiplayer.png" alt="Versusville Bios" width="750" height="75">
+                </td>
+            </tr>
+        </table>
+
+        
+        <table cellpadding="0" cellspacing="0" width="750" class="center" style="text-align: center;">
+            <tr style="background-color: #473923;">
+
+                <td valign="top" width="750">
+                    
+                    <br>
+
+                    <table cellpadding="0" cellspacing="0" width="600" class="center" style="text-align: center;">
+                        <tr>
+                            <td>
+                                <p style="font-size: 15px; font-weight: bold; color: #ffdd9a;">HOW MULTIPLAYER WORKS IN VERSUSVILLE</p>
+                                <p>
+                                    This is all kind of important to know if you are interested in hosting a server or servlet so I'd appreciate it if you didn't scroll by before attempting to start host a server.
+                                    <br>
+                                    There are 4 main components to Versusville:
+                                    <br><br>
+                                    <strong>1.</strong> The Client -- This is the game. Clients can host game servers for a Login Server to keep track of
+                                    <br>
+                                    <strong>2.</strong> The 202X Patch -- This is not required for multiplayer, but has a few caveats
+                                    <br>
+                                    <strong>3.</strong> The Servlet -- This is the reverse engineered username database used for this site
+                                    <br>
+                                    <strong>4.</strong> The Login Server -- This is the server that hosts a list of all servers currently being re-hosted
+                                    <br><br>
+                                    Multiplayer on a basic level has Clients that must connect to another Client who we'll call the Host. When the Host starts the server, their Client tells the Login Server that they've started a new server so other Clients checking the server list can see the newly hosted server and connect to it.
+                                    <br><br>
+                                    While this process doesn't involve the Servlet, it's currently assumed that with the Login Server active, any calls that would normally go to the Servlet are redirected to the Login Server. This means that some users might not have their scores submit to the Servlet, but instead to the Login Server, which means scores would not be posted to versusville.com if the 202X Patch was applied.
+                                </p>
+                                <p style="font-size: 15px; font-weight: bold; color: #ffdd9a;">HOW TO CONNECT TO A MULTIPLAYER SERVER</p>
+                                <p>
+                                    If you want to do nothing more than connect to a game without hosting, all you need to do is navigate to your game's install directory (should look something like <code>C:\Program Files (x86)\DC Studios\Kenny vs Spenny - Versusville</code>) and navigate to the <code>home\Trimorph\client\browser.cfg</code> file and edit <code>loginServerName=VALUE</code> with VALUE being the Login Server IP. If a server is currently active in the <a href="https://discord.gg/7cSJM2xbq7">Kenny Hotz Official Discord</a>, the ip is likely <code>versusville.xyz</code>
+                                    <br>
+                                    If one isn't running, you'll have to follow the section about hosting a Login Server...
+                                </p>
+                                <p style="font-size: 15px; font-weight: bold; color: #ffdd9a;">HOW TO HOST A MULTIPLAYER SERVER</p>
+                                <p>
+                                    To host a multiplayer server you must be able to connect to a server. So please read the section above before continuing.
+                                    <br><br>
+                                    Once you've connected to a Login Server, make sure to forward both ports 5250 and 5200 on your router and then launch the game. Then you should be able to create a new game server within each menu. Sometimes games and lobbies can freeze, hang, and crash so beware.
+                                </p>
+                                <p style="font-size: 15px; font-weight: bold; color: #ffdd9a;">HOW TO HOST A LOGIN SERVER</p>
+                                <p>
+                                    1. Create a copy of the Versusville shortcut used to launch the Client
+                                    <br>
+                                    2. Change the <code>javaw.exe</code> to <code>java.exe</code> in "Target"
+                                    <br>
+                                    3. Increase the memory allocation to something reasonable (Probably <code>1024M</code>)
+                                    <br>
+                                    4. Change <code>media.prod.kvs.scripts.Main</code> to <code>muse.server.login.Main</code>
+                                    <br>
+                                    5. Launch the newly created shortcut :)
+                                    <br><br>
+                                    If you're just going to run this through the console, the command is <code>"C:\Program Files (x86)\DC Studios\Kenny vs Spenny - Versusville\jre\bin\java.exe" -Xmx1024M -Duser.home=home -Dmedia=media/prod/kvs -cp lib/muse.jar;. muse.server.login.Main</code> 
+                                </p>
+                                <p style="font-size: 15px; font-weight: bold; color: #ffdd9a;">HOW TO HOST A SERVLET</p>
+                                <p>
+                                    Visit the <a href="https://github.com/CarsonKompon/VersusvilleServlet">Github Page</a> for the reverse engineered Versusville Servlet and follow the README guide :)
+                                </p>
+                                <br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+
+        <!-- VERSUSVILLE CREDITS -->
+        <table cellpadding="0" cellspacing="0" width="750" class="center">
+            <tr>
+                <td valign="top" width="750" style="background-color: #473923;">
+                <img src="media/versusville/game_credits.gif" vspace="10" height="46" width="730"></td>
+            </tr>
+        </table>
+        
+        <!-- LOAD DOWNLOAD LINKS -->
+        <script>
+            // 2021 Patch Download
+            var downloadPatch2021 = document.getElementsByClassName("download-patch-202x")
+            for(var i=0; i<downloadPatch2021.length; i++){ downloadPatch2021[i].href = "downloads/versusville/202X/versusville_2021_1.exe"; }
+        </script>
+
+    </body>
+
+</html>
