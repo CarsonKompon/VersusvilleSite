@@ -43,8 +43,7 @@
 .scoreboards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 12px; padding: 10px; }
 .scoreboards.scores-detail { grid-template-columns: minmax(0, 1fr); }
 .score-board { min-width: 0; }
-.score-board h2 { font: inherit; line-height: 1.5; margin: 0 0 5px; min-height: 39px; }
-.score-filters { min-height: 57px; }
+.score-board h2 { font: inherit; line-height: 1.5; margin: 0 0 5px; }
 .score-segments { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; margin-bottom: 5px; }
 .score-segments button { padding: 3px; font-size: 11px; background: transparent; border-color: transparent; text-decoration: underline; }
 .score-segments button[aria-pressed="true"] { color: #ffcc66; border-bottom-color: #ffcc66; text-decoration: none; }
@@ -78,5 +77,4 @@
 .scores-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
 @media (max-width: 600px) {
     .scoreboards { grid-template-columns: minmax(0, 1fr); }
-    .score-board h2, .score-filters { min-height: 0; }
 }
