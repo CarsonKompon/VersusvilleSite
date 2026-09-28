@@ -36,6 +36,14 @@ p { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
 	color:#ffcc66;
 	line-height:150%;
 }
+
+.download-versusville.in-browser {
+	font-size: 18pt;
+	font-weight: 800;
+	line-height: 1.5;
+	position: relative;
+	top: -4px;
+}
 	
 .ecards { font-family:trebuchet ms,verdana,arial,helvetica,sans-serif;
 	font-size:8pt;
